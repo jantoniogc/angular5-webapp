@@ -1,5 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +6,5 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Productos Angular 4';
-
-  constructor() { }
-
+  title = 'app';
 }
