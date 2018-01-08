@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   public titulo: string;
   constructor() {
-    this.titulo = 'Webapp de productos con angular 4';
+    this.titulo = 'Webapp de Productos con Angular 5';
   }
 
   ngOnInit() {

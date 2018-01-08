@@ -7,19 +7,19 @@
   <nav id="nav" class="col-lg-12">
     <ul>
       <li>
-        <a href="#">Home</a>
+        <a [routerLink]="['/pagina-principal']"  [routerLinkActive]="['activado']">Home</a>
       </li>
       <li>
-        <a href="#">Producto</a>
+        <a [routerLink]="['/producto']" [routerLinkActive]="['activado']">Producto</a>
       </li>
       <li>
-        <a href="#">Crear Productio</a>
+        <a [routerLink]="['/crear-producto']" [routerLinkActive]="['activado']">Crear Productio</a>
       </li>
     </ul>
   </nav>
   <section id="main" class="col-lg-12">
     <!-- Component Actual -->
-    <app-home></app-home>
+    <router-outlet></router-outlet>
   </section>
   <footer id="footer" class="col-lg-12">
     <p>Curso de Angular 5 - jantoniogc</p>

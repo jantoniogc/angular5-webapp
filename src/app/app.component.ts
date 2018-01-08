@@ -1,4 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component, TemplateRef, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -6,9 +6,13 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Productos Angular 4';
 
-  constructor() { }
+  constructor() {}
+
+  ngOnInit() {
+
+  }
 
 }
