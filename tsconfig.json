@@ -15,5 +15,11 @@
       "es2017",
       "dom"
     ]
-  }
+  },
+  "include": [
+    "node_modules/angular-bootstrap-md/**/*.ts",
+    "node_modules/angular-web-template/src/app/footer/footer.component.ts",
+    "node_modules/angular-web-template/src/redux/filter/filter.reducer.ts",
+    "src/**/*.ts"
+  ]
 }

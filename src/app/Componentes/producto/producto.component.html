@@ -1,0 +1,17 @@
+<div class="example-container">
+  <form class="example-form" [formGroup]="parts" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="userId" formControlName="userId">
+      <mat-error *ngIf="parts.get('userId')?.invalid">El valor de userId es obligatorio</mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Title" formControlName="title">
+      <mat-error *ngIf="parts.get('title')?.invalid">El valor de title es obligatorio</mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Body" formControlName="body" >
+      <mat-error *ngIf="parts.get('body')?.invalid">El valor de body es obligatorio</mat-error>
+    </mat-form-field>
+    <button type="submit" class="btn btn-primary" >Submit</button>
+  </form>
+</div>

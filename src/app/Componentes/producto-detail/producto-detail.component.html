@@ -1,0 +1,15 @@
+<div *ngIf="!producto">
+  <p>Cargando producto</p>
+</div>
+<div *ngIf="producto">
+  <div class="col-lg-4">
+    <label>UserId:</label> <h5>{{producto.userId}}</h5>
+  </div>
+  <div class="col-lg-8">
+    <h3>{{producto.id}}</h3>
+    <p>
+      <strong>{{producto.title}}</strong>
+    </p>
+    <p>{{producto.body}}</p>
+  </div>
+</div>

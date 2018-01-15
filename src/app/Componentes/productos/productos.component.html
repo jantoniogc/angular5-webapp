@@ -1,0 +1,38 @@
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="userId">
+      <mat-header-cell *matHeaderCellDef> User Id </mat-header-cell>
+      <mat-cell *matCellDef="let producto"> {{producto.userId}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+      <mat-cell *matCellDef="let producto"> {{producto.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="body">
+      <mat-header-cell *matHeaderCellDef> Body </mat-header-cell>
+      <mat-cell *matCellDef="let producto"> {{producto.body}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+      <mat-cell *matCellDef="let producto"> {{producto.title}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actionsColumn">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let producto">
+        <button mat-icon-button [routerLink]="['/producto', producto.userId, producto.id]" [routerLinkActive]="['activado']">
+          <i class="fa fa-edit mat-icon"></i>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
+</div>
