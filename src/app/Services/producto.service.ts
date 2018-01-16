@@ -1,12 +1,12 @@
-import { Injectable, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable  } from 'rxjs/Observable';
-import { Producto } from '../Models/producto';
-import { GLOBAL } from './global';
-import { mergeMap, map } from 'rxjs/operators';
+import { Injectable, OnInit } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs/Observable";
+import { Producto } from "../Models/producto";
+import { GLOBAL } from "./global";
+import { mergeMap, map } from "rxjs/operators";
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+  headers: new HttpHeaders({ "Content-Type": "application/json" })
 };
 
 @Injectable()
@@ -40,4 +40,16 @@ export class ProductoService {
     return this._http.get<Producto>(_url);
   }
 
+  editProducto(producto: Producto): Observable<Producto> {
+    const json = JSON.stringify(producto);
+    const param = json;
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json; charset=UTF-8'
+    });
+    console.log(param);
+    let _url: string;
+    _url = this.url + '/' + producto.id;
+    console.log(_url);
+    return this._http.put<Producto>(_url, param, { headers: headers });
+  }
 }

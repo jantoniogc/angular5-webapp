@@ -31,7 +31,9 @@ export class ProductoDetailComponent implements OnInit {
       this.store.dispatch(action);
     });
 
-    this.store.select('producto').subscribe(v => this.producto = v);
+    this.store.select('producto').subscribe(producto => {
+      this.producto = producto;
+    });
   }
 
   ngOnInit() {

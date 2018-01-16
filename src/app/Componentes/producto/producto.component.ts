@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatFormFieldControl } from '@angular/material';
 import { Subject } from 'rxjs/Subject';
 import { Validators } from '@angular/forms';
-import { PACKAGE_ROOT_URL } from '@angular/core/src/application_tokens';
+import { PACKAGE_ROOT_URL } from '@angular/core';
 import {
   FormControl,
   FormGroupDirective,
@@ -25,14 +25,14 @@ import { ActivatedRoute, Router } from '@angular/router';
     { provide: MatFormFieldControl, useExisting: ProductoComponent }
   ]
 })
-export class ProductoComponent
-  implements MatFormFieldControl<Producto>, OnInit, OnDestroy {
+export class ProductoComponent implements MatFormFieldControl<Producto>, OnInit, OnDestroy {
   static nextId: any = 0;
   public titulo: string;
   public producto: Producto;
   private _placeholder: string;
   private _required = false;
   private _disabled = false;
+
 
   public id = `app-producto-${ProductoComponent.nextId++}`;
   public describedBy = '';
@@ -116,6 +116,7 @@ export class ProductoComponent
     private _router: Router
   ) {
     console.log('Se ha cargado el componente Producto');
+    this.titulo = 'Detalle del Producto';
     this.parts = fb.group({
       userId: ['', Validators.required],
       title: ['', Validators.required],

@@ -31,6 +31,7 @@ import { FooterComponent } from 'angular-web-template/src/app/footer/footer.comp
 import { ProductoDetailComponent } from './Componentes/producto-detail/producto-detail.component';
 import { ProductoEffects } from '../redux/producto/producto.effects';
 import { Routes, RouterModule } from '@angular/router';
+import { ProductoEditComponent } from './Componentes/producto-edit/producto-edit.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { Routes, RouterModule } from '@angular/router';
     ProductosComponent,
     ProductoComponent,
     FooterComponent,
-    ProductoDetailComponent
+    ProductoDetailComponent,
+    ProductoEditComponent
   ],
   imports: [
     BrowserModule,

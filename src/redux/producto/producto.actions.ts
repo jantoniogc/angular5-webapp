@@ -4,6 +4,7 @@ import { Producto } from '../../app/Models/producto';
 
 export const REQUEST_PROD = '[PROD] REQUEST_PROD';
 export const ADD_PROD = '[PROD] ADD_PROD';
+export const EDIT_PROD = '[PROD] EDIT PROD';
 
 
 export class RequestProdAction implements Action {
@@ -22,6 +23,14 @@ export class AddProdAction implements Action {
     public producto: Producto
   ) {
   }
+}
+
+export class EditProdAction implements Action {
+  readonly type = EDIT_PROD;
+
+  constructor(
+    public producto: Producto
+  ) {}
 }
 
 
