@@ -5,6 +5,7 @@ import { Producto } from '../../app/Models/producto';
 export const REQUEST_PROD = '[PROD] REQUEST_PROD';
 export const ADD_PROD = '[PROD] ADD_PROD';
 export const EDIT_PROD = '[PROD] EDIT PROD';
+export const DELETE_PROD = '[PROD] DELETE PROD';
 
 
 export class RequestProdAction implements Action {
@@ -33,6 +34,13 @@ export class EditProdAction implements Action {
   ) {}
 }
 
+export class DeleteProdAction implements Action {
+  readonly type = DELETE_PROD;
+
+  constructor(
+    public producto: Producto
+  ) {}
+}
 
 
-export type AllActions = RequestProdAction | AddProdAction;
+export type AllActions = RequestProdAction | AddProdAction | EditProdAction | DeleteProdAction;

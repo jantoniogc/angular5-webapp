@@ -1,9 +1,10 @@
 import { Injectable, OnInit } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
-import { Producto } from "../Models/producto";
+import { Producto } from '../Models/producto';
 import { GLOBAL } from "./global";
 import { mergeMap, map } from "rxjs/operators";
+import { ObservableInput } from "rxjs/Observable";
 
 const httpOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json" })
@@ -25,7 +26,7 @@ export class ProductoService {
     const json = JSON.stringify(producto);
     const param = json;
     const headers = new HttpHeaders({
-      'Content-type': 'application/json; charset=UTF-8'
+      "Content-type": "application/json; charset=UTF-8"
     });
     console.log(param);
     return this._http.post<Producto>(this.url, param, { headers: headers });
@@ -49,7 +50,15 @@ export class ProductoService {
     console.log(param);
     let _url: string;
     _url = this.url + '/' + producto.id;
-    console.log(_url);
     return this._http.put<Producto>(_url, param, { headers: headers });
+  }
+
+  deleteProducto(producto: Producto): Observable<Producto> {
+     const headers = new HttpHeaders({
+      'Content-type': 'application/json; charset=UTF-8'
+    });
+    let _url: string;
+    _url = this.url + '/' + producto.id;
+    return this._http.delete<Producto>(_url, {headers: headers});
   }
 }

@@ -29,6 +29,9 @@
         <button mat-icon-button [routerLink]="['/editar-producto', producto.userId, producto.id]" [routerLinkActive]="['activado']">
           <i class="material-icons">edit</i>
         </button>
+        <button mat-icon-button [routerLink]="['/delete-producto', producto.userId, producto.id]" [routerLinkActive]="['activado']">
+          <i class="material-icons">delete</i>
+        </button>
       </mat-cell>
     </ng-container>
 

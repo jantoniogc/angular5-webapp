@@ -7,6 +7,7 @@ import { ProductosComponent } from './Componentes/productos/productos.component'
 import { ProductoComponent } from './Componentes/producto/producto.component';
 import { ProductoDetailComponent } from './Componentes/producto-detail/producto-detail.component';
 import { ProductoEditComponent } from './Componentes/producto-edit/producto-edit.component';
+import { DeleteProductoComponent } from './Componentes/delete-producto/delete-producto.component';
 
 const appRouters: Routes = [
   { path: '', component: HomeComponent },
@@ -15,6 +16,7 @@ const appRouters: Routes = [
   { path: 'crear-producto', component: ProductoComponent },
   { path: 'producto/:userId/:id', component: ProductoDetailComponent },
   { path: 'editar-producto/:userId/:id', component: ProductoEditComponent },
+  { path: 'delete-producto/:userId/:id', component: DeleteProductoComponent },
   { path: '**', component: ErrorComponent }
 ];
 

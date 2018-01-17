@@ -7,7 +7,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Params } from '@angular/router/src/shared';
 import { HttpErrorResponse } from '@angular/common/http/src/response';
 import { RequestProdAction } from '../../../redux/producto/producto.actions';
-import { getSelectorProducto } from '../../../redux/producto/producto.selector';
 
 @Component({
   selector: 'app-producto-detail',

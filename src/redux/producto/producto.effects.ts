@@ -1,19 +1,21 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs/Observable";
-import { Action } from "@ngrx/store";
-import { Actions, Effect } from "@ngrx/effects";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Action } from '@ngrx/store';
+import { Actions, Effect } from '@ngrx/effects';
 
 import {
   REQUEST_PROD,
   AddProdAction,
   RequestProdAction,
   EditProdAction,
-  EDIT_PROD
-} from "./producto.actions";
+  EDIT_PROD,
+  DELETE_PROD,
+  DeleteProdAction
+} from './producto.actions';
 
-import { mergeMap, map } from "rxjs/operators";
-import { ProductoService } from "../../app/Services/producto.service";
-import { Producto } from "../../app/Models/producto";
+import { mergeMap, map } from 'rxjs/operators';
+import { ProductoService } from '../../app/Services/producto.service';
+import { Producto } from '../../app/Models/producto';
 
 @Injectable()
 export class ProductoEffects {
@@ -34,13 +36,23 @@ export class ProductoEffects {
     mergeMap((action: EditProdAction) => {
       return this.productosService.editProducto(action.producto).pipe(
         map((response: Producto) => {
-          console.log(response[0]);
           return new RequestProdAction(response.userId, response.id);
         })
       );
     })
   );
 
+  @Effect()
+  deleteProd$: Observable<Action> = this.actions$.ofType(DELETE_PROD).pipe(
+    mergeMap((action: DeleteProdAction) => {
+      return this.productosService.deleteProducto(action.producto).pipe(
+        map((response: Producto) => {
+          console.log(response);
+          return new RequestProdAction(response.userId, response.id);
+        })
+      );
+    })
+  );
   constructor(
     private productosService: ProductoService,
     private actions$: Actions
