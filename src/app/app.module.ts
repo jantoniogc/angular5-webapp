@@ -33,6 +33,7 @@ import { ProductoEffects } from '../redux/producto/producto.effects';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductoEditComponent } from './Componentes/producto-edit/producto-edit.component';
 import { DeleteProductoComponent } from './Componentes/delete-producto/delete-producto.component';
+import { HijoComponent } from './Componentes/hijo/hijo.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { DeleteProductoComponent } from './Componentes/delete-producto/delete-pr
     FooterComponent,
     ProductoDetailComponent,
     ProductoEditComponent,
-    DeleteProductoComponent
+    DeleteProductoComponent,
+    HijoComponent
   ],
   imports: [
     BrowserModule,

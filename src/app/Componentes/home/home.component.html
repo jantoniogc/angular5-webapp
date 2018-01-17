@@ -3,8 +3,14 @@
     <h2>{{titulo}}</h2>
     <p>Gestiona tus productos con la aplicación web SPA creada con Angular 5</p>
     <p>
-      <a [routerLink] = "['/productos']" class="btn btn-lg btn-primary">Ver productos</a>
-      <a [routerLink] = "['/crear-producto']" class="btn btn-lg btn-success">Añadir productos</a>
+      <a [routerLink]="['/productos']" class="btn btn-lg btn-primary">Ver productos</a>
+      <a [routerLink]="['/crear-producto']" class="btn btn-lg btn-success">Añadir productos</a>
     </p>
   </div>
+  <app-hijo [prop1]="dato_externo" [prop2]="identity" (salida_desde_hijo)="recibirDatos($event)"></app-hijo>
+  <div *ngIf="datos_hijo" class="jumbotron">
+    <h3>{{datos_hijo.nombre}}</h3>
+    <p>{{datos_hijo.web}}</p>
+  </div>
 </div>
+

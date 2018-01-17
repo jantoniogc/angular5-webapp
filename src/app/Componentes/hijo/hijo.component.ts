@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-hijo',
@@ -6,10 +6,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hijo.component.scss']
 })
 export class HijoComponent implements OnInit {
+  public titulo: string;
+  @Input() prop1: string;
+  @Input() prop2: string;
 
-  constructor() { }
+  @Output() salida_desde_hijo = new EventEmitter();
 
-  ngOnInit() {
+  constructor() {
+    console.log('constructor');
   }
 
+  ngOnInit() {
+    this.titulo = 'Componente Hijo';
+    console.log(this.prop1);
+    console.log(this.prop2);
+  }
+
+  enviar() {
+    this.salida_desde_hijo.emit({
+      nombre: 'Juan Antonio desde el hijo al padre',
+      web: 'www.opencanarias.es'
+    });
+  }
 }
